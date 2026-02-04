@@ -4,6 +4,7 @@ import com.crisfloretino.arbitrage.client.SGOAPIClient;
 import com.crisfloretino.arbitrage.client.SGOURLBuilder;
 import com.crisfloretino.arbitrage.model.APIResponse;
 import com.crisfloretino.arbitrage.model.Event;
+import com.crisfloretino.arbitrage.service.ArbitrageService;
 import com.crisfloretino.arbitrage.util.Dates;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,7 +22,7 @@ public class ArbitrageApplication {
     }
 
     @Bean
-    public CommandLineRunner run(SGOAPIClient client){
+    public CommandLineRunner run(SGOAPIClient client, ArbitrageService service){
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
@@ -38,6 +39,10 @@ public class ArbitrageApplication {
 
                 if (response.isPresent()) {
                     System.out.println("Events found: " + response.get().data().size());
+
+                    for (Event event : response.get().data()) {
+                        service.findArbitrage(event);
+                    }
                 } else {
                     System.out.println("No response received.");
                 }
