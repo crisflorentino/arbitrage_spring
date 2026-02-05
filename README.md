@@ -55,3 +55,23 @@ Run the application directly from the terminal using the Spring Boot Gradle plug
 
 # Windows
 gradlew.bat bootRun
+
+```
+
+## 🔮 Roadmap
+
+The project is currently undergoing a major refactor to utilize the Spring ecosystem.
+
+### **Interactive CLI (Spring Shell):**
+* Allow users to exit the application gracefully at any moment.
+* Highlight arbitrage opportunities with color-coded outputs and tables.
+
+### **Automation:**
+* Implement timed interval scanning (Cron jobs) to catch arbitrage opportunities that only exist for fleeting moments.
+
+### **User Experience:**
+* Generate direct links to the specific bookmakers when an opportunity is discovered.
+
+### **Configuration:**
+* Move API Key configuration to a secure, user-prompted setup to avoid hardcoding.
+
