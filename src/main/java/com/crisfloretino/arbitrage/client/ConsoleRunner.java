@@ -20,8 +20,7 @@ public class ConsoleRunner implements CommandLineRunner {
     private final ArbitrageService service;
     private final SGOAPIClient client;
 
-    // 1. Inject API Key from application.properties so you don't have to type it!
-    @Value("${odds.api.key:}") // Default to empty string if missing
+    @Value("${odds.api.key:}")
     private String configuredApiKey;
 
     public ConsoleRunner(ArbitrageService service, SGOAPIClient client) {
@@ -47,11 +46,9 @@ public class ConsoleRunner implements CommandLineRunner {
             }
 
             try {
-                // 2. Parse ID safely
                 int leagueId = Integer.parseInt(input);
                 Leagues league = Leagues.fromId(leagueId);
 
-                // 3. Run the search logic
                 processLeagueSearch(league, apiKey, scanner);
 
             } catch (NumberFormatException e) {
@@ -64,10 +61,8 @@ public class ConsoleRunner implements CommandLineRunner {
         System.exit(0);
     }
 
-    // --- Helper Methods to keep 'run' clean ---
 
     private String getApiKey(Scanner scanner) {
-        // If we set it in application.properties, skip asking!
         if (configuredApiKey != null && !configuredApiKey.isBlank()) {
             return configuredApiKey;
         }
@@ -79,7 +74,6 @@ public class ConsoleRunner implements CommandLineRunner {
         System.out.println("\n--- MAIN MENU ---");
         System.out.println("Select a league (Enter ID):");
         for (Leagues l : Leagues.values()) {
-            // Assuming Leagues has a getter for ID, or we use ordinal + 1
             System.out.println(l.getId() + ". " + l.getName());
         }
         System.out.println("Type 'exit' to quit.");
