@@ -23,6 +23,6 @@ public enum Leagues {
             if (league.id == id) { return league; }
         }
 
-        throw new IllegalArgumentException("ID does not exist in League enums.");
+        throw new IllegalArgumentException("ID does not exist.");
     }
 }
