@@ -51,10 +51,10 @@ Run the application directly from the terminal using the Spring Boot Gradle plug
 
 ```bash
 # Linux/Mac
-./gradlew bootRun
+./gradlew bootRun -q
 
 # Windows
-gradlew.bat bootRun
+gradlew.bat bootRun -q
 
 ```
 
