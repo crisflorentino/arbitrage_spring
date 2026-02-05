@@ -3,7 +3,7 @@
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
 ![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=Gradle&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Work_In_Progress-yellow?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active_Development-brightgreen?style=for-the-badge)
 
 A Java-based application, currently being migrated to **Spring Boot**, that fetches game odds from a variety of leagues. It interfaces with the **SportsGameOdds API** to aggregate bookmaker data and algorithmically detects **arbitrage opportunities** where the variance in odds between different bookmakers guarantees a profit regardless of the game's outcome.
 
