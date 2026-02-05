@@ -85,5 +85,7 @@ public class ConsoleRunner implements CommandLineRunner {
                 System.out.println(e.getMessage());
             }
         }
+
+        scanner.close();
     }
 }
