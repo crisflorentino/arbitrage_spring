@@ -1,6 +1,7 @@
 package com.crisfloretino.arbitrage.client;
 
 import com.crisfloretino.arbitrage.model.APIResponse;
+import com.crisfloretino.arbitrage.model.Event;
 import com.google.gson.Gson;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -39,8 +42,10 @@ public class SGOAPIClient {
             System.err.println("There was a problem when parsing the JSON, returning empty response.");
             return Optional.empty();
         }
+    }
 
-
+    public List<Event> collectEvents(APIResponse response) {
+        return new ArrayList<>(response.data());
     }
 
 
